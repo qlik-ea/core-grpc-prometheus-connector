@@ -42,7 +42,7 @@ Requires Node.js version 9+.
 
 ```bash
 cd example
-docker-compose up -d --build --force-recreate
+ACCEPT_EULA=yes docker-compose up -d --build --force-recreate
 cd ui
 npm i
 npx webpack --mode development

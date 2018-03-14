@@ -1,11 +1,13 @@
 const picasso = require('picasso.js');
 const picassoQ = require('picasso-plugin-q');
 
-picasso.use(picassoQ);
-
 const createSession = require('./session');
-const createMemoryChart = require('./memory-chart');
-const createSessionChart = require('./sessions-chart');
+const createMemoryChart = require('./picasso/memory-chart');
+const createSessionChart = require('./picasso/sessions-chart');
+const tooltipComponent = require('./picasso/tooltip-component');
+
+picasso.use(picassoQ);
+picasso.component('tooltip', tooltipComponent);
 
 (async () => {
   const doc = await createSession(`ws://localhost:9076/app/${+new Date()}`);

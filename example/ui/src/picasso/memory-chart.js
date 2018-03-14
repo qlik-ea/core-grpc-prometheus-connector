@@ -14,7 +14,7 @@ async function createObject(doc) {
       ],
       qInitialDataFetch: [{
         qWidth: 4,
-        qHeight: 1000,
+        qHeight: 2000,
       }],
     },
   });
@@ -45,6 +45,16 @@ async function createChart(picasso, doc) {
           type: 'color',
         },
       },
+      interactions: [
+        {
+          type: 'native',
+          events: {
+            mousemove: function(e) {
+              this.chart.component('tooltip').emit('hover', e);
+            }
+          }
+        }
+      ],
       components: [{
         key: 'ax1',
         type: 'axis',
@@ -67,7 +77,7 @@ async function createChart(picasso, doc) {
       }, {
         type: 'grid-line',
         x: {
-          scale: 'x',
+          scale: 't',
         },
         y: {
           scale: 'y',
@@ -99,10 +109,31 @@ async function createChart(picasso, doc) {
           },
         },
       }, {
+        key: 'points',
+        type: 'point',
+        data: {
+          extract: {
+            field: 'qDimensionInfo/2',
+            value: v => v.qNum,
+            props: {
+              x: { field: 'qDimensionInfo/1' },
+              y: { field: 'qMeasureInfo/0' },
+            },
+          },
+        },
+        settings: {
+          x: { scale: 't' },
+          y: { scale: 'y' },
+        },
+      }, {
         key: 'legend',
         type: 'legend-cat',
         scale: 'color',
         dock: 'right',
+      }, {
+        key: 'tooltip',
+        type: 'tooltip',
+        background: 'white' // Override our default setting
       }],
     },
   });

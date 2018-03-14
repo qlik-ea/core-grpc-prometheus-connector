@@ -1,12 +1,17 @@
 const enigma = require('enigma.js');
 const schema = require('enigma.js/schemas/12.20.0.json');
 
+const REFRESH_RATE_IN_SECONDS = 5;
+
 async function reloadLoop(global, doc) {
   const reload = doc.doReload();
   await reload;
   const progress = await global.getProgress(reload.requestId);
   console.log(JSON.stringify(progress));
-  setTimeout(() => reloadLoop(global, doc), 10000);
+  const variable = await doc.getVariableByName('qvdExist');
+  const layout = await variable.getLayout();
+  console.log(layout);
+  setTimeout(() => reloadLoop(global, doc), REFRESH_RATE_IN_SECONDS * 1000);
 }
 
 async function createSession(url) {
@@ -31,10 +36,14 @@ async function createSession(url) {
   ]);
 
   const script = `
+LET qvdExist = NOT ISNULL(QVDCREATETIME('lib://tmp/promdata.qvd'));
+  
 Prometheus_Data:
 LIB CONNECT TO "prom";
 SQL *;
-CONCATENATE LOAD * FROM [lib://tmp/promdata.qvd](qvd);
+IF $(qvdExist) THEN
+  CONCATENATE LOAD * FROM [lib://tmp/promdata.qvd](qvd);
+END IF
 
 STORE Prometheus_Data INTO [lib://tmp/promdata.qvd](qvd);
   `;
