@@ -7,7 +7,7 @@ async function createObject(doc) {
       qDimensions: [
         { qDef: { qFieldDefs: ['name'] } },
         { qDef: { qFieldDefs: ['scrape_timestamp'] } },
-        { qDef: { qFieldDefs: ['container_label_com_docker_compose_service'] }, qNullSuppression: true },
+        { qDef: { qFieldDefs: ['container_label_com_docker_compose_service'], qFieldLabels: ['Container'] }, qNullSuppression: true },
       ],
       qMeasures: [
         { qDef: { qDef: "Sum({$<name={'container_memory_usage_bytes'}>}value)" } },
@@ -113,18 +113,24 @@ async function createChart(picasso, doc) {
         type: 'point',
         data: {
           extract: {
-            field: 'qDimensionInfo/2',
+            field: 'qDimensionInfo/1',
             value: v => v.qNum,
             props: {
-              x: { field: 'qDimensionInfo/1' },
-              y: { field: 'qMeasureInfo/0' },
-            },
-          },
+              text: { field: 'qDimensionInfo/2' },
+              y: { field: 'qMeasureInfo/0' }
+            }
+          }
         },
         settings: {
           x: { scale: 't' },
           y: { scale: 'y' },
-        },
+          size: function(d, i) {
+            return 0.25;
+          },
+          fill: function(d, i) {
+            return 'rgba(200, 50, 50, 0.2)';
+          }
+        }
       }, {
         key: 'legend',
         type: 'legend-cat',
@@ -140,7 +146,7 @@ async function createChart(picasso, doc) {
 
   obj.on('changed', async () => {
     const layout = await obj.getLayout();
-    // console.log(layout.qHyperCube);
+    console.log(layout.qHyperCube);
     chart.update({
       data: [{
         type: 'q',

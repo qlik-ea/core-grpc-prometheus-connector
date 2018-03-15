@@ -24,9 +24,16 @@ module.exports = {
     this.state = { nodes: [] };
   },
   buildRow(d) {
+    if (d.text) {
+      return [this.h('div', {
+        style: {
+          "font-size": "16px",
+          "font-weight": 600
+        }
+      }, d.text.label)];
+    }
   	return [
-      this.h('div',
-             {
+      this.h('div', {
         style: {
           "margin-right": "4px",
           "font-weight": 600

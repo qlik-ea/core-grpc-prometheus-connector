@@ -97,7 +97,7 @@ def fetch(prom_url, query_expr):
   global scrape_timestamp
   scrape_timestamp = int(datetime.now(tz=timezone.utc).timestamp() * 1000)
 
-  response = requests.get('{0}/api/v1/query'.format(prom_url), params={ 'query': query_expr })
+  response = requests.get(prom_url, params={ 'query': query_expr })
   results = response.json()['data']['result']
 
   return results
