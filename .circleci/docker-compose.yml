@@ -1,0 +1,26 @@
+version: "3.3"
+
+services:
+  prom-connector:
+    build: ../
+    restart: always
+    ports:
+      - "9001:9001"
+  qix-engine:
+    image: qlikea/engine:12.147.0
+    restart: always
+    command: |
+      - -S AcceptEULA=${ACCEPT_EULA} 
+      - -S EnableGrpcCustomConnectors=1
+      - -S GrpcConnectorPlugins="prometheus-connector,prom-connector:9001"
+      - -S EnableConnectivityService=0
+    ports:
+      - "9076:9076"
+  prometheus:
+    image: prom/prometheus:v2.1.0
+    restart: always
+    # since circle ci does not allow volume mounting we will
+    # manually copy this file into the container
+    command: '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - "9090:9090"
