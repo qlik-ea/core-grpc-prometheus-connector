@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/core-grpc-prometheus-connector
+    docker:
+      - image: circleci/node:9
+    steps:
+      - checkout
+      - run:
+          name: Build example UI
+          pwd: example/ui/
+          command: |
+            npm install --quiet
+            npx eslint src/
+            npx webpack --mode production
+      - setup_remote_docker
+      - run:
+          name: Login to Docker
+          command: docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
+      - run:
+          name: Start example
+          pwd: example/
+          command: ACCEPT_EULA=yes docker-compose up -d --build
+      - run:
+          name: Run test
+          pwd: test/
+          command: |
+            set +e
+            node index.js
+
