@@ -49,11 +49,11 @@ async function createChart(picasso, doc) {
         {
           type: 'native',
           events: {
-            mousemove: function(e) {
+            mousemove(e) {
               this.chart.component('tooltip').emit('hover', e);
-            }
-          }
-        }
+            },
+          },
+        },
       ],
       components: [{
         key: 'ax1',
@@ -116,21 +116,21 @@ async function createChart(picasso, doc) {
             field: 'qDimensionInfo/1',
             value: v => v.qNum,
             props: {
-              text: { field: 'qDimensionInfo/2' },
-              y: { field: 'qMeasureInfo/0' }
-            }
-          }
+              text: { field: 'qDimensionInfo/2' },
+              y: { field: 'qMeasureInfo/0' },
+            },
+          },
         },
         settings: {
           x: { scale: 't' },
           y: { scale: 'y' },
-          size: function(d, i) {
+          size(/* d, i */) {
             return 0.25;
           },
-          fill: function(d, i) {
+          fill(/* d, i */) {
             return 'rgba(200, 50, 50, 0.2)';
-          }
-        }
+          },
+        },
       }, {
         key: 'legend',
         type: 'legend-cat',
@@ -139,7 +139,7 @@ async function createChart(picasso, doc) {
       }, {
         key: 'tooltip',
         type: 'tooltip',
-        background: 'white' // Override our default setting
+        background: 'white', // Override our default setting
       }],
     },
   });
