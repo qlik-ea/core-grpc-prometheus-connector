@@ -4,7 +4,7 @@
 
 Note, Qlik Associative Engine needs to be started with something similar to this: `-S EnableGrpcCustomConnectors=1 -S GrpcConnectorPlugins="prometheus-connector,prom-connector:9001" -S EnableConnectivityService=0`.
 
-Requires an existing prometheus server running, and change the hard-coded value in
+Requires an existing Prometheus server running, and change the hard-coded value in
 `src/connector.py`.
 
 The connector supports two parameters passed in from the connection string, `promHost=some-host:9090`, and `promQuery=some-promql-expression`. 
