@@ -7,6 +7,10 @@ Note, Qlik Associative Engine needs to be started with something similar to this
 Requires an existing prometheus server running, and change the hard-coded value in
 `src/connector.py`.
 
+The connector supports two parameters passed in from the connection string, `promHost=some-host:9090`, and `promQuery=some-promql-expression`. 
+
+For example, `CUSTOM CONNECT TO "provider=prometheus-connector;promHost=my-prometheus-hostname:9090;promQuery={__name__=~'qix.+'}"`, will tell the connector to fetch Prometheus data from host `my-prometheus-hostname`, on port `9090` with a Prometheus query that will list all metrics that starts with `qix`.
+
 ### Run locally
 
 Requires python3.
@@ -34,9 +38,6 @@ docker build . -t prom-connector
 ```
 
 ## Running the example
-
-The example is pretty rough right now and likely not in a working state, use
-at your own risk!
 
 Requires Node.js version 9+.
 
