@@ -7,7 +7,7 @@ services:
     ports:
       - "9001:9001"
   qix-engine:
-    image: qlikcore/engine:12.160.0
+    image: qlikcore/engine:12.166.0
     restart: always
     command: |
       - -S AcceptEULA=${ACCEPT_EULA} 
