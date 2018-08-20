@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "enigma.js": "^2.2.1",
+    "enigma.js": "^2.3.0",
     "ws": "^6.0.0"
   }
 }
