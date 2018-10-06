@@ -4,15 +4,15 @@
   "version": "0.0.1",
   "license": "MIT",
   "devDependencies": {
-    "copy-webpack-plugin": "^4.5.1",
-    "enigma.js": "^2.2.0",
-    "eslint": "^4.18.2",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.9.0",
-    "html-webpack-plugin": "^3.0.6",
-    "picasso-plugin-q": "^0.6.0",
-    "picasso.js": "^0.6.0",
-    "webpack": "^4.1.1",
-    "webpack-cli": "^2.0.11"
+    "copy-webpack-plugin": "4.5.2",
+    "enigma.js": "2.3.0",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-import": "2.14.0",
+    "html-webpack-plugin": "3.0.6",
+    "picasso-plugin-q": "0.14.0",
+    "picasso.js": "0.14.0",
+    "webpack": "4.20.2",
+    "webpack-cli": "2.1.5"
   }
 }
