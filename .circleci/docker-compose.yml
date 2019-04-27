@@ -17,7 +17,7 @@ services:
     ports:
       - "9076:9076"
   prometheus:
-    image: prom/prometheus:v2.9.1
+    image: prom/prometheus:v2.9.2
     restart: always
     # since circle ci does not allow volume mounting we will
     # manually copy this file into the container
