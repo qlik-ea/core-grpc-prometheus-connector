@@ -88,7 +88,7 @@ async function createChart(picasso, doc) {
         data: {
           extract: {
             field: 'qDimensionInfo/1',
-            value: v => v.qNum,
+            value: (v) => v.qNum,
             props: {
               v: { field: 'qMeasureInfo/0' },
               id: { field: 'qDimensionInfo/2' },
@@ -99,7 +99,7 @@ async function createChart(picasso, doc) {
           coordinates: {
             major: { scale: 't' },
             minor: { scale: 'y', ref: 'v' },
-            layerId: v => v.datum.id.value,
+            layerId: (v) => v.datum.id.value,
           },
           layers: {
             line: {
@@ -114,7 +114,7 @@ async function createChart(picasso, doc) {
         data: {
           extract: {
             field: 'qDimensionInfo/1',
-            value: v => v.qNum,
+            value: (v) => v.qNum,
             props: {
               text: { field: 'qDimensionInfo/2' },
               y: { field: 'qMeasureInfo/0' },

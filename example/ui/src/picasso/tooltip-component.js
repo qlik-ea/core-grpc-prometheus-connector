@@ -55,7 +55,7 @@ module.exports = {
   },
   buildNodes() {
     // Filter out any node that doesn't have any data bound to it or is a container node.
-    const shapes = this.state.nodes.filter(n => n.type !== 'container' && n.data);
+    const shapes = this.state.nodes.filter((n) => n.type !== 'container' && n.data);
     if (!shapes.length) {
       return [];
     }
@@ -66,7 +66,7 @@ module.exports = {
     const top = targetNode.bounds.y + targetNode.bounds.height;
 
     // Render each data property should be rendered on a separate row.
-    const rows = Object.keys(targetNode.data).filter(prop => prop !== 'value' && prop !== 'label').map(dataProp => this.h(
+    const rows = Object.keys(targetNode.data).filter((prop) => prop !== 'value' && prop !== 'label').map((dataProp) => this.h(
       'div',
       {
         style: {

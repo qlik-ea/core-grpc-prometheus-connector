@@ -73,7 +73,7 @@ async function createChart(picasso, doc) {
         data: {
           extract: {
             field: 'qDimensionInfo/1',
-            value: v => v.qNum,
+            value: (v) => v.qNum,
             props: {
               v: { field: 'qMeasureInfo/0' },
             },
