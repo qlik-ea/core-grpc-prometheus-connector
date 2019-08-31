@@ -6,13 +6,13 @@
   "devDependencies": {
     "copy-webpack-plugin": "5.0.4",
     "enigma.js": "2.4.0",
-    "eslint": "6.2.2",
+    "eslint": "6.3.0",
     "eslint-config-airbnb-base": "14.0.0",
     "eslint-plugin-import": "2.18.2",
     "html-webpack-plugin": "3.2.0",
     "picasso-plugin-q": "0.26.1",
     "picasso.js": "0.26.1",
-    "webpack": "4.39.2",
+    "webpack": "4.39.3",
     "webpack-cli": "3.3.7"
   }
 }
