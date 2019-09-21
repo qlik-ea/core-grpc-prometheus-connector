@@ -10,9 +10,9 @@
     "eslint-config-airbnb-base": "14.0.0",
     "eslint-plugin-import": "2.18.2",
     "html-webpack-plugin": "3.2.0",
-    "picasso-plugin-q": "0.26.1",
-    "picasso.js": "0.26.1",
+    "picasso-plugin-q": "0.27.0",
+    "picasso.js": "0.27.0",
     "webpack": "4.40.2",
-    "webpack-cli": "3.3.8"
+    "webpack-cli": "3.3.9"
   }
 }
