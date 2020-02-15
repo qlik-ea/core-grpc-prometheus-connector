@@ -12,7 +12,7 @@
     "html-webpack-plugin": "3.2.0",
     "picasso-plugin-q": "0.29.2",
     "picasso.js": "0.29.2",
-    "webpack": "4.41.5",
-    "webpack-cli": "3.3.10"
+    "webpack": "4.41.6",
+    "webpack-cli": "3.3.11"
   }
 }
