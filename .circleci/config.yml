@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/core-grpc-prometheus-connector
     docker:
-      - image: circleci/node:12.13
+      - image: circleci/node:12.16
     steps:
       - checkout
       - run:

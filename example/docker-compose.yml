@@ -17,7 +17,7 @@ services:
       GRPC_TRACE: none # all, http, etc.
       GRPC_VERBOSITY: DEBUG
   prometheus:
-    image: prom/prometheus:v2.17.2
+    image: prom/prometheus:v2.18.1
     command: '--config.file=/etc/prometheus/prometheus.yml'
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
