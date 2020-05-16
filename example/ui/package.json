@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "devDependencies": {
-    "copy-webpack-plugin": "5.1.1",
+    "copy-webpack-plugin": "6.0.1",
     "enigma.js": "2.7.1",
     "eslint": "7.0.0",
     "eslint-config-airbnb-base": "14.1.0",
