@@ -12,7 +12,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({ template: './src/index.html' }),
-    new CopyWebpackPlugin([{ from: './src/**/*.css', flatten: true }]),
+    new CopyWebpackPlugin({ patterns: [{ from: './src/**/*.css', flatten: true }] }),
   ],
 };
 
