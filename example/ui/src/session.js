@@ -50,5 +50,4 @@ STORE Prometheus_Data INTO [lib://tmp/promdata.qvd](qvd);
   return doc;
 }
 
-
 module.exports = createSession;
