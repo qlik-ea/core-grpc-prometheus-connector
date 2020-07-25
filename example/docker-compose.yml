@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   qix-engine:
-    image: qlikcore/engine:12.700.0
+    image: qlikcore/engine:12.754.0
     restart: always
     command: |
       - -S AcceptEULA=${ACCEPT_EULA} 
@@ -17,7 +17,7 @@ services:
       GRPC_TRACE: none # all, http, etc.
       GRPC_VERBOSITY: DEBUG
   prometheus:
-    image: prom/prometheus:v2.19.2
+    image: prom/prometheus:v2.20.0
     command: '--config.file=/etc/prometheus/prometheus.yml'
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
