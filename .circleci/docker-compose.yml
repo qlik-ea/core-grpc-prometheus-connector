@@ -7,7 +7,7 @@ services:
     ports:
       - "9001:9001"
   qix-engine:
-    image: qlikcore/engine:12.754.0
+    image: qlikcore/engine:12.792.0
     restart: always
     command: |
       - -S AcceptEULA=${ACCEPT_EULA} 
@@ -17,7 +17,7 @@ services:
     ports:
       - "9076:9076"
   prometheus:
-    image: prom/prometheus:v2.20.1
+    image: prom/prometheus:v2.21.0
     restart: always
     # since circle ci does not allow volume mounting we will
     # manually copy this file into the container
