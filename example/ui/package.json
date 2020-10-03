@@ -4,11 +4,11 @@
   "version": "0.0.1",
   "license": "MIT",
   "devDependencies": {
-    "copy-webpack-plugin": "6.1.1",
+    "copy-webpack-plugin": "6.2.0",
     "enigma.js": "2.7.2",
     "eslint": "7.10.0",
     "eslint-config-airbnb-base": "14.2.0",
-    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-import": "2.22.1",
     "html-webpack-plugin": "4.5.0",
     "picasso-plugin-q": "0.34.0",
     "picasso.js": "0.34.0",
