@@ -13,6 +13,6 @@
     "picasso-plugin-q": "0.34.0",
     "picasso.js": "0.34.0",
     "webpack": "5.0.0",
-    "webpack-cli": "3.3.12"
+    "webpack-cli": "4.0.0"
   }
 }
